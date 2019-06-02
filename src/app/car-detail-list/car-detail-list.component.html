@@ -1,0 +1,24 @@
+<p>
+  car-detail-list works!
+</p>
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of carParkDetails">
+        <td>{{ item.floor }}</td>
+        <td>{{ item.quantity }}</td>
+      </tr>
+      </tbody>
+    </table>
+<!--    <input type="button" value="Click me" (click)="msg()">-->
+
+  </div>
+</div>
