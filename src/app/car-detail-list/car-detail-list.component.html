@@ -1,21 +1,24 @@
-<p>
-  car-detail-list works!
-</p>
 <div class="card my-5">
+  <div class="card-header">
+    Quantity of Car Parking
+  </div>
   <div class="card-body">
     <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
+      <thead class="table-primary">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Floor</th>
-        <th scope="col">Quantity / Floor</th>
+        <th scope="col">Parking</th>
+        <th scope="col">Remain</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let item of carParkDetails;let i=index">
         <td>{{ i + 1 }}</td>
-        <td>{{ item.floor }}</td>
+
+        <td><a href="javascript:void(0)" (click)="getCarParkingByFloor(item.floor)">{{item.floor }}</a></td>
         <td>{{ item.quantity }}</td>
+        <td>{{ item.remain }}</td>
       </tr>
       </tbody>
     </table>

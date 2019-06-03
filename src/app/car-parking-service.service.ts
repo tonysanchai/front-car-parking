@@ -14,7 +14,11 @@ export class CarParkingServiceService {
   }
 
   public findAll(): Observable<CarParkDetail[]> {
-    return this.http.get<CarParkDetail[]>(this.url+"getCar");
+    return this.http.get<CarParkDetail[]>(this.url + "getAllCarParking");
+  }
+
+  public getCarParkingByFloor(floor: String) {
+    return this.http.get(`${this.url}getCarParkingByFloor?floor=${floor}`);
   }
 
   // public save(user: User) {

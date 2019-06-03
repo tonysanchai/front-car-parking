@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CarParkDetail} from "../car-park-detail";
 import {CarParkingServiceService} from "../car-parking-service.service";
 
@@ -9,18 +9,25 @@ import {CarParkingServiceService} from "../car-parking-service.service";
 })
 export class CarDetailListComponent implements OnInit {
 
-  carParkDetails : CarParkDetail[];
-  constructor(private carParkingServiceService :CarParkingServiceService) { }
+  carParkDetails: CarParkDetail[];
+
+  constructor(private carParkingServiceService: CarParkingServiceService) {
+  }
 
   ngOnInit() {
-    this.carParkingServiceService.findAll().subscribe(data=>{
+    this.carParkingServiceService.findAll().subscribe(data => {
       this.carParkDetails = data;
     });
+    // this.carParkingServiceService.getCarParking('1').subscribe(data => {
+    //   console.log(data);
+    // });
   }
-  msg(){
-    this.carParkingServiceService.findAll().subscribe(data=>{
-      this.carParkDetails = data;
+
+  getCarParkingByFloor(floor : any) {
+    this.carParkingServiceService.getCarParkingByFloor(floor).subscribe(data => {
+     alert("Floor : "+data[0].floor+"\nParking : "+ data[0].quantity+"\nRemain Park : "+ data[0].remain);
     });
+
   }
 
 }
